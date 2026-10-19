@@ -1,267 +1,342 @@
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:070B16,35:111C3A,70:103D49,100:070B16&height=250&section=header&text=AEGIS%20AI&fontSize=76&fontColor=F8FAFC&fontAlignY=39&desc=INTELLIGENCE%20FOR%20OPERATIONAL%20RELIABILITY&descSize=14&descAlignY=63&animation=fadeIn" alt="AEGIS AI — Operational Reliability Intelligence"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:050816,35:111C3A,70:103D49,100:050816&height=260&section=header&text=AEGIS%20AI&fontSize=76&fontColor=F8FAFC&fontAlignY=40&desc=INTELLIGENCE%20FOR%20OPERATIONAL%20RELIABILITY&descSize=15&descAlignY=64&animation=fadeIn" alt="AEGIS AI — Reliability Intelligence"/>
 
 <br/>
 
-# INVESTIGATE WITH CLARITY. ENGINEER WITH CONFIDENCE.
+# THE SIGNAL. THE ROOT CAUSE. THE RESPONSE.
 
-### AI-ASSISTED INCIDENT INVESTIGATION & RELIABILITY ENGINEERING
+**A modern incident investigation and reliability intelligence platform.**
 
-A modern backend platform combining incident management, log intelligence, AI-assisted investigations, controlled recovery simulations, and auditable operational workflows.
+Transform application logs into structured findings, investigate incidents, simulate recovery workflows, and preserve an auditable operational history.
 
 <br/>
 
 <a href="https://aegis-ai-8epd.onrender.com">
-<img src="https://img.shields.io/badge/EXPLORE_LIVE_APP-10BFA5?style=for-the-badge" alt="Live Application"/>
+<img src="https://img.shields.io/badge/EXPLORE_LIVE_DEMO-00D6B9?style=for-the-badge&logoColor=07111B" alt="Explore Live Demo"/>
 </a>
 <a href="https://aegis-ai-8epd.onrender.com/docs">
-<img src="https://img.shields.io/badge/INTERACTIVE_API-172554?style=for-the-badge&logo=fastapi&logoColor=white" alt="API Documentation"/>
+<img src="https://img.shields.io/badge/EXPLORE_REST_API-172554?style=for-the-badge&logo=fastapi&logoColor=FFFFFF" alt="REST API"/>
 </a>
 <a href="https://github.com/akankshad1712/aegis-ai">
-<img src="https://img.shields.io/badge/SOURCE_CODE-18181B?style=for-the-badge&logo=github&logoColor=white" alt="Source Code"/>
+<img src="https://img.shields.io/badge/VIEW_SOURCE-18181B?style=for-the-badge&logo=github&logoColor=FFFFFF" alt="Source Code"/>
 </a>
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
-<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-<img src="https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
+<img src="https://img.shields.io/badge/PYTHON-3776AB?style=flat-square&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/FASTAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQLITE-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
+<img src="https://img.shields.io/badge/DOCKER-2496ED?style=flat-square&logo=docker&logoColor=white"/>
+<img src="https://img.shields.io/badge/PYTEST-0A9EDC?style=flat-square&logo=pytest&logoColor=white"/>
+<img src="https://img.shields.io/badge/CI%2FCD-GITHUB_ACTIONS-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
 
 <br/><br/>
 
-**BACKEND ENGINEERING · AI INTEGRATION · API SECURITY · RELIABILITY**
+**DESIGNED WITH INTENT. ENGINEERED WITH PURPOSE.**
 
-[Live Application](https://aegis-ai-8epd.onrender.com) · [API Explorer](https://aegis-ai-8epd.onrender.com/docs) · [GitHub Repository](https://github.com/akankshad1712/aegis-ai)
+[Live Application](https://aegis-ai-8epd.onrender.com) · [API Explorer](https://aegis-ai-8epd.onrender.com/docs) · [Source Code](https://github.com/akankshad1712/aegis-ai)
 
 </div>
 
 ---
 
-## 01 — PRODUCT VISION
+<div align="center">
 
-### From operational signals to structured investigations.
+## 01 / THE VISION
 
-Modern applications generate logs, incidents, errors, and operational events. Understanding these signals requires a workflow that makes information easier to analyze, investigate, and trace.
+### Operational complexity, made easier to investigate.
 
-**AEGIS AI** brings incident records, diagnostic log analysis, investigation workflows, recovery simulations, and audit history into a unified backend application.
+</div>
 
-The platform is designed around three principles:
+AEGIS AI is a backend engineering project built around a simple idea: incident information should be easier to analyze, investigate, and trace.
 
-| PRINCIPLE | ENGINEERING APPROACH |
-|---|---|
-| Clarity | Convert operational signals into structured findings |
-| Traceability | Preserve investigation history and audit events |
-| Controlled automation | Keep recovery simulations separate from real infrastructure changes |
+It brings incident records, log-pattern analysis, structured investigation results, simulated recovery actions, and audit events into one application.
 
-## 02 — PLATFORM CAPABILITIES
+The experience combines a lightweight web dashboard with a Python API and persistent data layer, creating a foundation for exploring practical reliability engineering workflows.
+
+<div align="center">
+
+| UNDERSTAND | INVESTIGATE | TRACE |
+|:---:|:---:|:---:|
+| Analyze log patterns | Generate structured findings | Review recorded events |
+
+</div>
+
+---
+
+## 02 / PRODUCT EXPERIENCE
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### ◈ Incident Management
+### ◈ Incident Command
 
-- Create and retrieve incidents
-- Update incident status
-- Access incident details
-- Associate investigations with incidents
-- Preserve operational records
+A unified view of operational issues.
+
+- Incident creation and retrieval
+- Status management
+- Incident-level investigation
+- Historical record access
 
 </td>
 <td width="50%" valign="top">
 
 ### ⌘ Log Intelligence
 
-- Analyze submitted application logs
-- Detect supported error patterns
-- Identify diagnostic signals
-- Validate incoming data
-- Generate structured findings
+Structured analysis of application logs.
+
+- Recognizable error patterns
+- Memory-pressure signals
+- Input validation
+- Structured diagnostic findings
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### ✳ AI-Assisted Investigation
+### ✳ Investigation Engine
 
-- OpenAI Agents SDK integration
-- Configurable AI model settings
+A repeatable workflow for examining incidents.
+
 - Investigation execution
-- Persisted investigation history
-- Reviewable investigation results
+- Findings based on available information
+- Saved investigation history
+- Human-reviewable output
 
 </td>
 <td width="50%" valign="top">
 
-### ⚡ Recovery Simulation
+### ⚡ Recovery Lab
 
-- Record proposed recovery actions
-- Support explicit simulation approval
-- Record simulated outcomes
-- Maintain audit events
-- Separate simulation from real remediation
+A controlled environment for recovery workflows.
+
+- Recovery-action records
+- Explicit simulation approval
+- Simulated action outcomes
+- Recorded audit events
 
 </td>
 </tr>
 </table>
 
-> **Safety by design:** recovery approval records a simulation, not real infrastructure remediation. Findings should be reviewed before operational decisions are made.
+> **Engineering principle:** proposed recovery actions remain simulations. They do not execute real infrastructure remediation.
 
-## 03 — SYSTEM ARCHITECTURE
+---
 
-```mermaid
-flowchart TD
-    USER["Operator / API Client"]
-    API["FastAPI Application"]
-    AUTH["API-Key Authentication"]
-    RATE["Rate Limiting"]
-    LOG["Log Analyzer"]
-    AGENT["AI Investigation Component"]
-    INCIDENTS["Incident Management"]
-    RESULTS["Investigation Results"]
-    RECOVERY["Recovery Simulation"]
-    AUDIT["Audit Events"]
-    DB[("SQLite Database")]
-
-    USER --> API
-    API --> AUTH
-    AUTH --> RATE
-
-    RATE --> LOG
-    RATE --> AGENT
-    RATE --> INCIDENTS
-
-    LOG --> DB
-    AGENT --> RESULTS
-    RESULTS --> DB
-    INCIDENTS --> DB
-    RESULTS --> RECOVERY
-    RECOVERY --> AUDIT
-    AUDIT --> DB
-
-    style USER fill:#111827,color:#F9FAFB,stroke:#64748B
-    style API fill:#172554,color:#FFFFFF,stroke:#60A5FA
-    style AGENT fill:#3B0764,color:#FFFFFF,stroke:#C4B5FD
-    style DB fill:#164E63,color:#FFFFFF,stroke:#67E8F9
-    style RECOVERY fill:#713F12,color:#FFFFFF,stroke:#FDE68A
-```
-
-### Technology stack
-
-| LAYER | TECHNOLOGY | PURPOSE |
-|---|---|---|
-| Backend | Python, FastAPI | API endpoints and application workflows |
-| AI integration | OpenAI Agents SDK | AI-assisted investigation |
-| Data persistence | SQLite | Incident and investigation records |
-| Security | API-key authentication | Protected API access |
-| Request control | Rate limiting | Request-volume management |
-| Testing | pytest, HTTPX | Automated quality checks |
-| Containerization | Docker, Docker Compose | Consistent application deployment |
-| Configuration | Environment variables, python-dotenv | Runtime configuration |
-| CI | GitHub Actions | Automated workflow validation |
-| Hosting | Render | Live application deployment |
-
-## 04 — INCIDENT LIFECYCLE
-
-```mermaid
-flowchart LR
-    A["01 · Capture"] --> B["02 · Analyze"]
-    B --> C["03 · Investigate"]
-    C --> D["04 · Review"]
-    D --> E["05 · Simulate"]
-    E --> F["06 · Audit"]
-
-    style A fill:#172554,color:#FFFFFF,stroke:#60A5FA
-    style B fill:#164E63,color:#FFFFFF,stroke:#67E8F9
-    style C fill:#3B0764,color:#FFFFFF,stroke:#C4B5FD
-    style D fill:#0F766E,color:#FFFFFF,stroke:#5EEAD4
-    style E fill:#713F12,color:#FFFFFF,stroke:#FDE68A
-    style F fill:#1F2937,color:#FFFFFF,stroke:#9CA3AF
-```
-
-1. **Capture:** create or retrieve an incident.
-2. **Analyze:** examine logs for supported diagnostic patterns.
-3. **Investigate:** execute the configured investigation workflow.
-4. **Review:** inspect findings and proposed recovery actions.
-5. **Simulate:** record a supported recovery simulation.
-6. **Audit:** review persisted investigation and operational events.
-
-## 05 — AGENTIC AI & INTELLIGENCE
-
-AEGIS AI includes an AI investigation component intended to support structured incident analysis.
-
-The project's AI integration is configured through environment variables and works alongside the application's backend, database, and deterministic diagnostic logic.
-
-### AI engineering concepts
-
-- OpenAI Agents SDK integration
-- Model configuration
-- Python backend integration
-- Incident investigation workflows
-- Structured application data
-- Persistent investigation records
-- Human review of generated findings
-- Separation of diagnostic logic and AI-assisted reasoning
-
-**Important distinction:** an AI SDK integration alone does not prove that an application implements a fully autonomous agent. Autonomous planning, tool calling, multi-agent orchestration, and self-directed remediation should be claimed only where the source code implements those capabilities.
-
-## 06 — LIVE PRODUCT
+## 03 / THE VISUAL LANGUAGE
 
 <div align="center">
 
-### AEGIS AI / RELIABILITY WORKSPACE
-
-**One platform. Structured investigation workflows.**
-
-<br/>
-
-<a href="https://aegis-ai-8epd.onrender.com"><strong>↗ OPEN LIVE APPLICATION</strong></a>
-
-<br/><br/>
-
-<a href="https://aegis-ai-8epd.onrender.com/docs"><strong>↗ EXPLORE INTERACTIVE API DOCUMENTATION</strong></a>
-
-<br/><br/>
-
-<a href="https://github.com/akankshad1712/aegis-ai/actions"><strong>↗ VIEW CI WORKFLOWS</strong></a>
+| DESIGN ELEMENT | DIRECTION |
+|:---|:---|
+| Visual identity | Dark, technical, editorial |
+| Primary accent | Electric teal |
+| Supporting palette | Midnight navy, graphite, cool white |
+| Layout inspiration | Figma-style grids and clear hierarchy |
+| Information design | Compact metadata, readable tables, clear sections |
+| Product tone | Precise, calm, engineering-focused |
 
 </div>
 
-### Dashboard preview
+The README uses GitHub-compatible Markdown, HTML, badges, and Mermaid diagrams. Its design language is inspired by premium SaaS dashboards; the GitHub README itself will not behave like an interactive Figma prototype.
 
-For the strongest portfolio presentation, add an actual screenshot of your running application at `docs/images/aegis-dashboard.png`.
+---
+
+## 04 / LIVE APPLICATION
+
+<div align="center">
+
+### AEGIS AI — RELIABILITY WORKSPACE
+
+**One application. Multiple investigation workflows.**
+
+<br/>
+
+<a href="https://aegis-ai-8epd.onrender.com">
+<strong>↗ Open the live dashboard</strong>
+</a>
+
+<br/><br/>
+
+<a href="https://aegis-ai-8epd.onrender.com/docs">
+<strong>↗ Explore the interactive REST API</strong>
+</a>
+
+<br/><br/>
+
+<a href="https://github.com/akankshad1712/aegis-ai/actions">
+<strong>↗ View GitHub Actions</strong>
+</a>
+
+</div>
+
+### Add your actual dashboard screenshot
+
+Capture a screenshot of your running application and save it as `docs/images/aegis-dashboard.png`.
+
+Then add this block:
 
 ```html
 <div align="center">
   <img
     src="docs/images/aegis-dashboard.png"
     width="100%"
-    alt="AEGIS AI operational investigation dashboard"
+    alt="AEGIS AI incident investigation dashboard"
   />
-  <p><em>AEGIS AI — Operational investigation workspace</em></p>
+  <p><em>AEGIS AI — Incident and investigation workspace</em></p>
 </div>
 ```
 
-Use this preview only after adding the image file to your repository.
+A real screenshot of the application is more valuable to recruiters than a decorative mockup presented as a working product.
 
-## 07 — REST API
+---
 
-The live Swagger interface provides the authoritative endpoint list, request schemas, and response models.
+## 05 / SYSTEM ARCHITECTURE
 
-- **Production:** [Interactive API documentation](https://aegis-ai-8epd.onrender.com/docs)
-- **Local:** `http://127.0.0.1:8000/docs`
+```mermaid
+flowchart TD
+    U["Operator"]
+    W["Web Dashboard<br/>HTML · CSS · JavaScript"]
+    A["FastAPI Application"]
+    S["API-Key Security"]
+    R["Rate Limiting"]
+    L["Log Analyzer"]
+    I["Investigation Engine"]
+    X["Recovery Simulation"]
+    E["Audit Events"]
+    D[("SQLite Database")]
 
-### Authentication
+    U --> W
+    W --> A
+    A --> S
+    S --> R
+    R --> L
+    R --> I
+    R --> X
 
-Protected API routes use the `X-API-Key` header. The `/api/health` endpoint is exempt from API-key authentication.
+    L --> D
+    I --> D
+    X --> E
+    E --> D
 
-Example PowerShell request:
+    style U fill:#111827,color:#F9FAFB,stroke:#64748B
+    style W fill:#0F766E,color:#FFFFFF,stroke:#5EEAD4
+    style A fill:#172554,color:#FFFFFF,stroke:#60A5FA
+    style S fill:#312E81,color:#FFFFFF,stroke:#A5B4FC
+    style D fill:#164E63,color:#FFFFFF,stroke:#67E8F9
+```
+
+### Technology architecture
+
+| COMPONENT | TECHNOLOGY | RESPONSIBILITY |
+|:---|:---|:---|
+| Application backend | Python, FastAPI | API routes and application workflows |
+| Web interface | HTML, CSS, JavaScript | Dashboard experience |
+| Persistence | SQLite | Incidents and related records |
+| Diagnostic logic | Deterministic heuristics | Pattern-based analysis |
+| API protection | API-key authentication | Access checks |
+| Request controls | SlowAPI | Rate limiting |
+| Quality | Pytest | Automated regression testing |
+| Containerization | Docker Compose | Reproducible local deployment |
+| CI | GitHub Actions | Automated workflow checks |
+| Hosting | Render | Public application deployment |
+
+---
+
+## 06 / INCIDENT LIFECYCLE
+
+```mermaid
+flowchart LR
+    A["01<br/>Capture"]
+    B["02<br/>Analyze"]
+    C["03<br/>Investigate"]
+    D["04<br/>Review"]
+    E["05<br/>Simulate"]
+    F["06<br/>Audit"]
+
+    A --> B --> C --> D --> E --> F
+
+    style A fill:#172554,color:#FFFFFF,stroke:#60A5FA
+    style B fill:#164E63,color:#FFFFFF,stroke:#67E8F9
+    style C fill:#0F766E,color:#FFFFFF,stroke:#5EEAD4
+    style D fill:#312E81,color:#FFFFFF,stroke:#A5B4FC
+    style E fill:#713F12,color:#FFFFFF,stroke:#FDE68A
+    style F fill:#1F2937,color:#FFFFFF,stroke:#9CA3AF
+```
+
+**01 — Capture:** Create and retrieve incident records.
+
+**02 — Analyze:** Submit logs and identify supported patterns.
+
+**03 — Investigate:** Generate structured findings from available incident information.
+
+**04 — Review:** Inspect findings and proposed actions.
+
+**05 — Simulate:** Approve a supported recovery simulation.
+
+**06 — Audit:** Review recorded workflow events.
+
+### Investigation engine: transparency matters
+
+The current engine is **rule-based and deterministic**, not a trained AI model or an external LLM integration. Its findings are diagnostic suggestions based on recognized patterns, not guaranteed root-cause determinations.
+
+This distinction keeps the product description technically accurate.
+
+---
+
+## 07 / REST API — DEVELOPER INTERFACE
+
+<div align="center">
+
+### YOUR WORKFLOWS. EXPOSED AS HTTP ENDPOINTS.
+
+**Base URL — production**
+
+`https://aegis-ai-8epd.onrender.com`
+
+**Base URL — local**
+
+`http://127.0.0.1:8000`
+
+[**OPEN SWAGGER UI ↗**](https://aegis-ai-8epd.onrender.com/docs)
+
+</div>
+
+### Endpoint catalogue
+
+| METHOD | ROUTE | DESCRIPTION |
+|:---|:---|:---|
+| `GET` | `/api/health` | Service health check |
+| `GET` | `/api/incidents` | List incidents |
+| `POST` | `/api/demo/seed` | Seed demonstration data |
+| `GET` | `/api/incidents/{id}` | Get incident details |
+| `PATCH` | `/api/incidents/{id}/status` | Update incident status |
+| `POST` | `/api/logs/analyze` | Analyze submitted logs |
+| `POST` | `/api/incidents/{id}/logs/analyze` | Analyze incident logs |
+| `POST` | `/api/incidents/{id}/investigate` | Run an investigation |
+| `GET` | `/api/incidents/{id}/investigations` | Retrieve investigation history |
+| `GET` | `/api/incidents/{id}/actions` | Retrieve recovery actions |
+| `POST` | `/api/actions/{action_id}/approve-simulation` | Approve a recovery simulation |
+| `GET` | `/api/audit-events` | List audit events |
+| `GET` | `/api/incidents/{id}/audit-events` | Retrieve incident audit history |
+
+Confirm request schemas and response models in Swagger UI before integrating a client.
+
+### Authentication contract
+
+Protected API routes use the `X-API-Key` header. `/api/health` is exempt from API-key authentication.
+
+```http
+GET /api/incidents HTTP/1.1
+Host: localhost:8000
+X-API-Key: YOUR_API_KEY
+```
+
+### PowerShell API example
 
 ```powershell
 $headers = @{
@@ -274,73 +349,83 @@ Invoke-RestMethod `
     -Headers $headers
 ```
 
-Set `AEGIS_API_KEY` in the current PowerShell session before making the request.
+Set the `AEGIS_API_KEY` environment variable before making the request.
 
-## 08 — QUICK START
+**Never commit a real API key.** Keep secrets out of README files, screenshots, source code, and public GitHub issues.
 
-### Prerequisites
+---
 
-- Python 3.12 recommended
+## 08 / GET STARTED
+
+### Requirements
+
+- Python version compatible with `requirements.txt`
 - Git
-- An OpenAI API key for AI-powered workflows
+- PowerShell on Windows, or a compatible terminal
 - Docker Desktop for containerized execution
 
-### 01. Clone the repository
+### 01 — Clone
 
 ```powershell
 git clone https://github.com/akankshad1712/aegis-ai.git
 cd aegis-ai
 ```
 
-### 02. Create a virtual environment
+### 02 — Create the environment
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 03. Install dependencies
+### 03 — Install dependencies
 
 ```powershell
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-### 04. Configure environment variables
-
-Create a local environment file:
+### 04 — Generate a development API key
 
 ```powershell
-Copy-Item .env.example .env
+$env:AEGIS_API_KEY = python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
-Update `.env` with your own values:
+The generated key is available in the current PowerShell session. Keep it private.
 
-```dotenv
-AEGIS_API_KEY=replace-with-a-long-random-secret
-OPENAI_API_KEY=your-openai-api-key
-AEGIS_AGENT_MODEL=gpt-4.1-mini
-```
-
-Replace all placeholders before running the application. Never commit real credentials.
-
-### 05. Start the application
+### 05 — Run the application
 
 ```powershell
 python -m uvicorn app.main:app --reload
 ```
 
-### 06. Explore the application
+### 06 — Explore
 
-| RESOURCE | LOCAL ADDRESS |
-|---|---|
-| Dashboard | [http://127.0.0.1:8000/](http://127.0.0.1:8000/) |
-| Swagger UI | [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) |
-| Health check | [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health) |
+| RESOURCE | URL |
+|:---|:---|
+| Dashboard | [localhost:8000](http://127.0.0.1:8000/) |
+| Swagger | [localhost:8000/docs](http://127.0.0.1:8000/docs) |
+| Health | [localhost:8000/api/health](http://127.0.0.1:8000/api/health) |
 
-## 09 — DOCKER DEPLOYMENT
+---
 
-AEGIS AI includes Docker and Docker Compose configuration for containerized execution.
+## 09 / CONTAINERIZED DEPLOYMENT
+
+The repository includes Docker and Docker Compose configuration.
+
+Create a `.env` file in the project root:
+
+```dotenv
+AEGIS_API_KEY=replace-with-your-random-secret
+```
+
+Generate a secret locally:
+
+```powershell
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+Replace the placeholder in `.env`. Do not commit the file.
 
 ### Build and start
 
@@ -348,159 +433,175 @@ AEGIS AI includes Docker and Docker Compose configuration for containerized exec
 docker compose up --build -d
 ```
 
-### Inspect container status
+### Check status
 
 ```powershell
 docker compose ps
 ```
 
-### Follow application logs
+### Follow logs
 
 ```powershell
 docker compose logs -f aegis-api
 ```
 
-### Stop the application
+### Stop services
 
 ```powershell
 docker compose down
 ```
 
-The container is configured to store its SQLite database at `/data/aegis.db`, using a named Docker volume for persistence.
+The Compose configuration uses a named volume for the SQLite database. Avoid removing that volume if you need to preserve its data.
 
-Ensure `OPENAI_API_KEY` and `AEGIS_AGENT_MODEL` are passed to the container if the agent implementation requires them. Host environment variables are not automatically available inside containers unless explicitly configured.
+---
 
-**Data safety:** avoid `docker compose down -v` if you need to preserve the database volume.
+## 10 / QUALITY ENGINEERING
 
-## 10 — TESTING & QUALITY ENGINEERING
+### Automated testing
 
-Run the automated test suite:
+Run the test suite from the project root:
 
 ```powershell
 python -m pytest -v
 ```
 
-Check dependency consistency:
+The existing tests cover API workflows, authentication, incident status validation, log analysis, investigation integration, simulated recovery, and audit events.
 
-```powershell
-python -m pip check
-```
+<div align="center">
 
-Compile application modules:
+<a href="https://github.com/akankshad1712/aegis-ai/actions">
+<img src="https://img.shields.io/badge/CONTINUOUS_INTEGRATION-GITHUB_ACTIONS-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+</a>
 
-```powershell
-python -m compileall -q app
-```
+</div>
 
-The latest reported local verification was **19 passing tests**. Run these commands on the current checkout to confirm its present state.
+**Previously verified:** 13 tests passed locally, and the GitHub Actions workflow passed. These are historical results; run the tests against the current checkout to confirm its present state.
 
-CI workflows: [GitHub Actions](https://github.com/akankshad1712/aegis-ai/actions).
+---
 
-## 11 — PROJECT STRUCTURE
+## 11 / REPOSITORY MAP
 
 ```text
 aegis-ai/
 ├── app/
-│   ├── agent.py
+│   ├── __init__.py
 │   ├── db.py
+│   ├── engine.py
+│   ├── limiter.py
+│   ├── log_analyzer.py
 │   ├── main.py
-│   └── supporting application modules
+│   ├── security.py
+│   └── static/
+│       └── index.html
 ├── tests/
+│   ├── test_api.py
+│   ├── test_log_integration.py
+│   ├── test_security.py
+│   ├── test_audit_logging.py
+│   └── test_log_analyzer.py
 ├── .github/
 │   └── workflows/
+│       └── ci.yml
 ├── .dockerignore
 ├── .gitignore
-├── .env.example
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
 ```
 
-## 12 — SECURITY & RELIABILITY
+---
 
-The project incorporates foundational controls to support safer API operations.
+## 12 / SECURITY & OPERATIONAL NOTES
 
-- API-key authentication for protected routes
-- Constant-time API-key comparison
-- Request rate limiting
-- Environment-based configuration
-- Automated regression testing
-- Audit-event recording
-- Persistent application records
-- Controlled recovery simulations
+AEGIS AI includes API-key checks, rate limiting, validation, and audit-event recording. These controls are a foundation, not a substitute for a production security review.
 
-### Operational considerations
-
-- Use strong, unique API keys.
-- Store secrets in environment variables or a managed secrets service.
+- Use a strong, randomly generated API key.
+- Configure secrets in the hosting provider's environment settings.
+- Rotate credentials that have been exposed.
 - Never commit `.env`, database files, or sensitive logs.
-- Use HTTPS for externally accessible deployments.
-- Review AI-generated findings before operational decisions.
-- Configure durable storage for important records.
-- Apply appropriate authorization, monitoring, and retention policies before production use.
+- Review diagnostic output before making operational decisions.
+- Recovery approval triggers a simulation, not real infrastructure remediation.
+- Configure durable database storage for records that must survive restarts.
+- Apply additional authorization and operational safeguards before public production use.
 
-The public demo may sleep after inactivity. Data persistence depends on the hosting provider's storage configuration.
+### Hosting considerations
 
-## 13 — ENGINEERING ROADMAP
+The deployed demo uses a free hosting configuration. The service may sleep after inactivity, and data held on an ephemeral filesystem may be lost when the instance restarts or redeploys.
 
-- [ ] Add a verified dashboard screenshot and walkthrough.
+---
+
+## 13 / PRODUCT ROADMAP
+
+- [ ] Add a real application screenshot and walkthrough.
 - [ ] Improve incident search and filtering.
 - [ ] Expand diagnostic patterns and regression coverage.
-- [ ] Associate investigation findings with supporting evidence.
-- [ ] Strengthen database persistence and deployment configuration.
-- [ ] Evaluate role-based access control.
-- [ ] Improve monitoring and structured diagnostics.
-- [ ] Explore evidence-grounded AI investigation enhancements.
-- [ ] Evaluate authorized infrastructure integrations with safeguards.
+- [ ] Add evidence references to investigation findings.
+- [ ] Configure persistent managed database storage.
+- [ ] Introduce role-based access controls.
+- [ ] Improve monitoring, metrics, and structured logging.
+- [ ] Explore optional LLM-assisted explanations grounded in incident evidence.
+- [ ] Develop authorized infrastructure integrations with safeguards.
 
-*Roadmap items represent planned improvements, not necessarily existing features.*
+---
 
-## 14 — ENGINEERING SKILLS DEMONSTRATED
+## 14 / ENGINEERING PORTFOLIO
 
-| DOMAIN | IMPLEMENTATION |
-|---|---|
-| Backend engineering | Python, FastAPI, modular application workflows |
-| API development | REST endpoints and request handling |
-| AI integration | OpenAI Agents SDK integration |
-| Data engineering fundamentals | SQLite, SQL, persisted records |
-| Application security | API-key authentication and rate limiting |
-| Quality engineering | pytest and regression testing |
-| DevOps | Docker, Docker Compose, persistent volumes |
+| AREA | DEMONSTRATED IN AEGIS AI |
+|:---|:---|
+| Backend engineering | FastAPI application and incident workflows |
+| API development | REST routes and request handling |
+| Data persistence | SQLite-backed records |
+| Security fundamentals | API-key authentication and rate limiting |
+| Testing | Pytest and regression tests |
+| DevOps | Docker and Docker Compose |
 | CI automation | GitHub Actions |
-| Reliability engineering | Log analysis and incident investigation |
-| Auditability | Persisted workflow events |
+| Reliability concepts | Log analysis and incident investigation |
+| Auditability | Recorded workflow events |
 | Safe automation | Recovery simulation |
-| Developer experience | Swagger documentation and setup instructions |
 
-## 15 — CONTRIBUTING
+AEGIS AI brings these skills together in a single project that can be explored through a live interface, an API documentation page, and a public source repository.
 
-Contributions and technical suggestions are welcome.
+---
+
+## 15 / CONTRIBUTING
+
+Contributions and suggestions are welcome.
 
 1. Fork the repository.
 2. Create a feature branch.
-3. Implement a focused change.
-4. Add or update automated tests.
+3. Make your change.
+4. Add or update tests.
 5. Run the test suite.
-6. Submit a pull request with a clear explanation.
+6. Submit a pull request describing the change.
 
-Never include credentials or sensitive operational data in contributions.
+Do not include credentials, private logs, or other sensitive operational data in contributions.
 
 ---
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:070B16,45:103D49,100:111C3A&height=150&section=footer&text=BUILT%20FOR%20CLARITY&fontSize=30&fontColor=F8FAFC&fontAlignY=39&desc=DETECT.%20INVESTIGATE.%20EXPLAIN.%20SIMULATE.&descSize=12&descAlignY=65" alt="AEGIS AI — Built for clarity"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:050816,45:103D49,100:111C3A&height=170&section=footer&text=BUILT%20FOR%20CLARITY.&fontSize=30&fontColor=F8FAFC&fontAlignY=40&desc=AEGIS%20AI%20%E2%80%94%20DETECT.%20INVESTIGATE.%20EXPLAIN.%20SIMULATE.&descSize=12&descAlignY=65" alt="AEGIS AI — Built for clarity"/>
 
 <br/>
 
 ### AKANKSHA DESHMUKH
 
-**Software Engineering · Backend Development · AI Integration**
-
-[GitHub Profile](https://github.com/akankshad1712) · [AEGIS AI Repository](https://github.com/akankshad1712/aegis-ai) · [Live Application](https://aegis-ai-8epd.onrender.com)
+**Software Engineering · Backend Development · API Engineering**
 
 <br/>
+
+<a href="https://github.com/akankshad1712">
+<img src="https://img.shields.io/badge/GITHUB_PROFILE-18181B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/>
+</a>
+<a href="https://github.com/akankshad1712/aegis-ai">
+<img src="https://img.shields.io/badge/PROJECT_REPOSITORY-0F766E?style=for-the-badge&logo=github&logoColor=white" alt="Project Repository"/>
+</a>
+<a href="https://aegis-ai-8epd.onrender.com">
+<img src="https://img.shields.io/badge/LIVE_APPLICATION-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Application"/>
+</a>
+
+<br/><br/>
 
 *Engineering a clearer path from operational signal to actionable insight.*
 
