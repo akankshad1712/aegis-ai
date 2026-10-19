@@ -121,3 +121,20 @@ def test_real_api_fails_closed_without_configured_key(monkeypatch):
     response = unauthenticated_client.get("/api/incidents")
 
     assert response.status_code == 503
+
+
+def test_real_app_rate_limit_returns_429():
+    limited_client = TestClient(
+        main.app,
+        headers={"X-API-Key": TEST_API_KEY},
+        client=("198.51.100.27", 54321),
+    )
+
+    responses = [
+        limited_client.post("/api/demo/seed")
+        for _ in range(4)
+    ]
+
+    assert [response.status_code for response in responses] == [
+        200, 200, 200, 429
+    ]
