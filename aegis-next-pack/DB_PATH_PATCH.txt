@@ -1,0 +1,11 @@
+IMPORTANT: make SQLite persistence work in Docker
+
+In app/db.py, find the current DB_PATH assignment. Replace that assignment with:
+
+import os  # add with the other imports if not already present
+
+DB_PATH = Path(os.getenv("AEGIS_DB_PATH", Path(__file__).resolve().parent.parent / "aegis.db"))
+
+Keep the existing pathlib import (Path). Ensure the /data directory exists in the container; the supplied Dockerfile creates it.
+
+Do not replace your whole db.py for this change. If DB_PATH is used by tests, keep the default path unchanged so local behavior remains the same.

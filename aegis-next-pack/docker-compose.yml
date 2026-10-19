@@ -1,0 +1,18 @@
+
+services:
+  aegis-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis-ai
+    ports:
+      - "8000:8000"
+    environment:
+      AEGIS_DB_PATH: /data/aegis.db
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - aegis_data:/data
+    restart: unless-stopped
+
+volumes:
+  aegis_data:

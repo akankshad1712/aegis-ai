@@ -1,0 +1,19 @@
+
+services:
+  aegis-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis-ai
+    ports:
+      - "8000:8000"
+    environment:
+      AEGIS_DB_PATH: /data/aegis.db
+      AEGIS_API_KEY: ${AEGIS_API_KEY:?Set AEGIS_API_KEY in your .env file}
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - aegis_data:/data
+    restart: unless-stopped
+
+volumes:
+  aegis_data:
