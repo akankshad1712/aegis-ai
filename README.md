@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AEGIS AI — lightweight incident intelligence MVP
 
 A Windows-friendly, zero-cost starter for an evidence-first incident investigation and safe recovery simulator.
@@ -138,3 +139,7 @@ aegis-ai-starter/
 ## Portfolio integrity
 
 Only claim features that you have implemented and tested. Describe the initial engine as a deterministic incident triage engine, not a fully autonomous AI agent. Use synthetic data or systems you are authorized to inspect.
+=======
+# aegis-ai
+Evidence-first AI incident investigation platform with log analysis, audit trails, API security, and simulated recovery actions.
+>>>>>>> origin/main
