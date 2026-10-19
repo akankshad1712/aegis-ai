@@ -1,7 +1,11 @@
-.venv/
+﻿.venv/
 __pycache__/
 .pytest_cache/
 *.py[cod]
 .env
-aegis.db
-.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+*.backup
