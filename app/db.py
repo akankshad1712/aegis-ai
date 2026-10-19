@@ -1,5 +1,12 @@
 
+"""AEGIS AI database layer.
+
+Uses SQLite with transaction handling, foreign-key enforcement,
+incident history, simulated actions, and audit events.
+"""
+
 import json
+import os
 import sqlite3
 from collections.abc import Iterator
 from contextlib import contextmanager
@@ -7,7 +14,12 @@ from pathlib import Path
 from typing import Any
 
 
-DB_PATH = Path(__file__).resolve().parent.parent / "aegis.db"
+DEFAULT_DB_PATH = Path(__file__).resolve().parent.parent / "aegis.db"
+
+# Supports Docker volumes and custom local database locations.
+DB_PATH = Path(
+    os.getenv("AEGIS_DB_PATH", str(DEFAULT_DB_PATH))
+).expanduser()
 
 ALLOWED_STATUSES = {"open", "investigating", "resolved"}
 
@@ -15,11 +27,14 @@ ALLOWED_STATUSES = {"open", "investigating", "resolved"}
 @contextmanager
 def connect() -> Iterator[sqlite3.Connection]:
     """Open a SQLite connection with transaction handling."""
-    conn = sqlite3.connect(DB_PATH, timeout=10)
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    conn = sqlite3.connect(str(DB_PATH), timeout=10)
     conn.row_factory = sqlite3.Row
 
     try:
         conn.execute("PRAGMA foreign_keys = ON")
+        conn.execute("PRAGMA busy_timeout = 10000")
         yield conn
         conn.commit()
     except Exception:
@@ -69,6 +84,29 @@ def init_db() -> None:
                 result TEXT,
                 created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
             );
+CREATE TABLE IF NOT EXISTS investigations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    incident_id INTEGER NOT NULL REFERENCES incidents(id),
+    summary TEXT NOT NULL,
+    findings_json TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS agent_investigations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    incident_id INTEGER NOT NULL REFERENCES incidents(id),
+    agent TEXT NOT NULL,
+    mode TEXT NOT NULL,
+    status TEXT NOT NULL,
+    report TEXT NOT NULL,
+    analysis_method TEXT NOT NULL,
+    root_cause_confirmed INTEGER NOT NULL DEFAULT 0,
+    recovery_executed INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_agent_investigations_incident
+    ON agent_investigations(incident_id, id DESC);
 
             CREATE TABLE IF NOT EXISTS audit_events (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -125,7 +163,7 @@ def _record_audit_event(
             entity_type,
             entity_id,
             incident_id,
-            json.dumps(details or {}),
+            json.dumps(details or {}, ensure_ascii=False),
         ),
     )
 
@@ -165,17 +203,13 @@ def list_audit_events(
 
     for row in rows:
         event = row_to_dict(row)
-        event["details"] = json.loads(
-            event.pop("details_json")
-        )
+        event["details"] = json.loads(event.pop("details_json"))
         events.append(event)
 
     return events
 
 
-def get_incident(
-    incident_id: int,
-) -> dict[str, Any] | None:
+def get_incident(incident_id: int) -> dict[str, Any] | None:
     """Get one incident by ID."""
     with connect() as conn:
         row = conn.execute(
@@ -304,7 +338,7 @@ def save_investigation(
             (
                 incident_id,
                 summary,
-                json.dumps(findings),
+                json.dumps(findings, ensure_ascii=False),
             ),
         )
 
@@ -314,15 +348,11 @@ def save_investigation(
         ).fetchone()
 
         if row is None:
-            raise RuntimeError(
-                "Saved investigation could not be retrieved"
-            )
+            raise RuntimeError("Saved investigation could not be retrieved")
 
         result = row_to_dict(row)
 
-    result["findings"] = json.loads(
-        result.pop("findings_json")
-    )
+    result["findings"] = json.loads(result.pop("findings_json"))
     return result
 
 
@@ -345,9 +375,7 @@ def list_investigations(
 
     for row in rows:
         item = row_to_dict(row)
-        item["findings"] = json.loads(
-            item.pop("findings_json")
-        )
+        item["findings"] = json.loads(item.pop("findings_json"))
         results.append(item)
 
     return results
@@ -370,7 +398,7 @@ def save_log_analysis(
             (
                 incident_id,
                 logs_text,
-                json.dumps(analysis),
+                json.dumps(analysis, ensure_ascii=False),
             ),
         )
 
@@ -380,15 +408,11 @@ def save_log_analysis(
         ).fetchone()
 
         if row is None:
-            raise RuntimeError(
-                "Saved log analysis could not be retrieved"
-            )
+            raise RuntimeError("Saved log analysis could not be retrieved")
 
         result = row_to_dict(row)
 
-    result["analysis"] = json.loads(
-        result.pop("analysis_json")
-    )
+    result["analysis"] = json.loads(result.pop("analysis_json"))
     return result
 
 
@@ -412,9 +436,7 @@ def get_latest_log_analysis(
         return None
 
     result = row_to_dict(row)
-    result["analysis"] = json.loads(
-        result.pop("analysis_json")
-    )
+    result["analysis"] = json.loads(result.pop("analysis_json"))
     return result
 
 
@@ -451,9 +473,7 @@ def create_action(
         ).fetchone()
 
         if row is None:
-            raise RuntimeError(
-                "Created action could not be retrieved"
-            )
+            raise RuntimeError("Created action could not be retrieved")
 
         return row_to_dict(row)
 
@@ -464,7 +484,6 @@ def approve_simulated_action(
     """
     Approve a proposed action exactly once.
 
-    The status change and audit event are committed together.
     No real infrastructure action is executed.
     """
     result_text = (
@@ -486,9 +505,7 @@ def approve_simulated_action(
             return None
 
         if action["status"] != "proposed":
-            raise ValueError(
-                f"Action is already {action['status']}"
-            )
+            raise ValueError(f"Action is already {action['status']}")
 
         cur = conn.execute(
             """
@@ -508,9 +525,7 @@ def approve_simulated_action(
             if current is None:
                 return None
 
-            raise ValueError(
-                f"Action is already {current['status']}"
-            )
+            raise ValueError(f"Action is already {current['status']}")
 
         _record_audit_event(
             conn=conn,
@@ -518,9 +533,7 @@ def approve_simulated_action(
             entity_type="action",
             entity_id=action_id,
             incident_id=action["incident_id"],
-            details={
-                "action_type": action["action_type"],
-            },
+            details={"action_type": action["action_type"]},
         )
 
         updated = conn.execute(
@@ -529,3 +542,82 @@ def approve_simulated_action(
         ).fetchone()
 
         return row_to_dict(updated) if updated else None
+
+def save_agent_report(
+    incident_id: int,
+    report: dict[str, Any],
+) -> dict[str, Any]:
+    """Persist an AI-agent investigation report."""
+    import json
+
+    with connect() as conn:
+        incident = conn.execute(
+            "SELECT id FROM incidents WHERE id = ?",
+            (incident_id,),
+        ).fetchone()
+
+        if incident is None:
+            raise ValueError(f"Incident {incident_id} not found")
+
+        cur = conn.execute(
+            """
+            INSERT INTO agent_investigations (
+                incident_id,
+                agent,
+                mode,
+                status,
+                report,
+                analysis_method,
+                root_cause_confirmed,
+                recovery_executed
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                incident_id,
+                report.get("agent", "AEGIS Reliability Investigation Agent"),
+                report.get("mode", "llm_tool_using"),
+                report.get("status", "completed"),
+                json.dumps(report, ensure_ascii=False),
+                report.get("analysis_method", "openai_agents_sdk_with_deterministic_tools"),
+                int(bool(report.get("root_cause_confirmed", False))),
+                int(bool(report.get("recovery_executed", False))),
+            ),
+        )
+
+        return {
+            "id": cur.lastrowid,
+            "incident_id": incident_id,
+            **report,
+        }
+
+
+def list_agent_reports(
+    incident_id: int,
+) -> list[dict[str, Any]]:
+    """Return saved AI-agent investigation reports."""
+    import json
+
+    with connect() as conn:
+        rows = conn.execute(
+            """
+            SELECT id, incident_id, report, created_at
+            FROM agent_investigations
+            WHERE incident_id = ?
+            ORDER BY id DESC
+            """,
+            (incident_id,),
+        ).fetchall()
+
+    results = []
+    for row in rows:
+        item = dict(row)
+        saved_report = json.loads(item.pop("report"))
+        results.append({
+            **saved_report,
+            "id": item["id"],
+            "incident_id": item["incident_id"],
+            "created_at": item["created_at"],
+        })
+
+    return results
