@@ -91,3 +91,33 @@ def test_unknown_incident_returns_404():
         "/api/incidents/999999/investigate"
     )
     assert response.status_code == 404
+
+
+def test_real_api_rejects_missing_key():
+    unauthenticated_client = TestClient(main.app)
+    response = unauthenticated_client.get("/api/incidents")
+    assert response.status_code == 401
+
+
+def test_real_api_rejects_invalid_key():
+    unauthenticated_client = TestClient(
+        main.app,
+        headers={"X-API-Key": "wrong-key"},
+    )
+    response = unauthenticated_client.get("/api/incidents")
+    assert response.status_code == 401
+
+
+def test_health_is_public_without_api_key():
+    unauthenticated_client = TestClient(main.app)
+    response = unauthenticated_client.get("/api/health")
+    assert response.status_code == 200
+
+
+def test_real_api_fails_closed_without_configured_key(monkeypatch):
+    monkeypatch.delenv("AEGIS_API_KEY", raising=False)
+
+    unauthenticated_client = TestClient(main.app)
+    response = unauthenticated_client.get("/api/incidents")
+
+    assert response.status_code == 503
