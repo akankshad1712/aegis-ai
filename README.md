@@ -1,145 +1,382 @@
-<<<<<<< HEAD
-# AEGIS AI — lightweight incident intelligence MVP
 
-A Windows-friendly, zero-cost starter for an evidence-first incident investigation and safe recovery simulator.
+<div align="center">
 
-## Current capabilities
+# ⚡ AEGIS AI
 
-- Dark browser dashboard served by FastAPI (no Node.js process required in MVP)
-- Create/list incidents using SQLite
-- Seed synthetic incident examples
-- Run a deterministic diagnostic engine for timeout/latency, application errors, deployment regression, and memory pressure
-- Save investigation reports
-- Propose recovery actions and approve a simulation
-- Tests for the core API flow
+### AI-Powered Incident Investigation & Reliability Intelligence
 
-**Safety boundary:** this starter only creates a simulated recovery record. It does not restart services, deploy code, access production telemetry, or execute shell commands. Heuristic scores are ranking hints, not calibrated probabilities. The engine is deterministic, not an LLM agent yet.
+**Detect. Investigate. Explain. Recover — Safely.**
 
-## 1. Prerequisites
+A modern incident investigation platform that analyzes application logs, organizes incidents, generates structured investigation reports, and tracks simulated recovery actions with audit history.
 
-- Windows 11
-- Python 3.11 or 3.12 recommended
-- Docker Desktop installed (not required for this first SQLite-based MVP)
+<br/>
 
-Check Python in PowerShell:
+[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![CI](https://github.com/akankshad1712/aegis-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/akankshad1712/aegis-ai/actions)
 
-```powershell
-py --version
+<br/>
+
+**[🌐 Live Demo](https://aegis-ai-8epd.onrender.com) · [💻 Source Code](https://github.com/akankshad1712/aegis-ai) · [📚 API Docs](https://aegis-ai-8epd.onrender.com/docs)**
+
+</div>
+
+---
+
+## ✨ Overview
+
+AEGIS AI is a reliability intelligence project designed to make incident investigation more structured, explainable, and auditable.
+
+Instead of treating logs as isolated text, AEGIS AI brings together incident records, log analysis, investigation findings, recovery-action simulations, and audit events in one dashboard.
+
+The platform combines a **deterministic, rule-based investigation engine** with a FastAPI backend and a web-based dashboard. It is designed as a practical foundation for exploring incident management, backend engineering, API security, and operational reliability workflows.
+
+> **Design principle:** Every investigation should produce understandable findings, every simulated action should be traceable, and every important operation should leave an audit trail.
+
+## 🚀 Key Features
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🔎 Log Intelligence
+- Analyze application logs
+- Identify recognizable error patterns
+- Highlight potential memory pressure and other operational signals
+- Generate structured analysis results
+
+</td>
+<td width="50%" valign="top">
+
+### 🧠 Incident Investigation
+- Create and manage incidents
+- Generate structured investigation reports
+- Connect log-analysis findings to investigations
+- Review investigation history
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🛡️ Secure API
+- API-key authentication
+- Protected API endpoints
+- Request identification and logging
+- Rate limiting
+- Input validation and error handling
+
+</td>
+<td width="50%" valign="top">
+
+### ⚙️ Recovery Simulation
+- Review proposed recovery actions
+- Approve supported actions for simulation
+- Track action status
+- Record operational audit events
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📋 Auditability
+- Incident status history
+- Investigation records
+- Recovery-action records
+- Audit-event inspection
+
+</td>
+<td width="50%" valign="top">
+
+### 🐳 Deployment & Testing
+- Docker containerization
+- Docker Compose support
+- Automated GitHub Actions workflow
+- Pytest-based API and security tests
+
+</td>
+</tr>
+</table>
+
+## 🖥️ Live Application
+
+**Try AEGIS AI:** [aegis-ai-8epd.onrender.com](https://aegis-ai-8epd.onrender.com)
+
+The application provides a dashboard for exploring incident investigation workflows.
+
+| Component | Purpose |
+|---|---|
+| Incident Queue | View and manage incident records |
+| Log Analyzer | Inspect logs for recognizable patterns |
+| Investigation Reports | Review structured findings |
+| Recovery Actions | Inspect and simulate supported actions |
+| Audit Timeline | Review recorded operational events |
+
+> **Demo note:** The public service may take time to wake up after inactivity on its free hosting tier. SQLite data on an ephemeral filesystem may not persist across restarts or redeployments.
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    U["User"] --> UI["Web Dashboard"]
+    UI --> API["FastAPI Application"]
+    API --> SEC["API Key Security"]
+    SEC --> RATE["Rate Limiting"]
+    RATE --> ROUTES["API Routes"]
+    ROUTES --> LOGS["Log Analysis Engine"]
+    ROUTES --> ENGINE["Investigation Engine"]
+    ROUTES --> ACTIONS["Recovery Simulation"]
+    LOGS --> DB[("SQLite Database")]
+    ENGINE --> DB
+    ACTIONS --> AUDIT["Audit Events"]
+    AUDIT --> DB
 ```
 
-If `py` is not found, install Python from https://www.python.org/downloads/windows/ and select **Add python.exe to PATH**. Reopen PowerShell after installing.
+### Technology Stack
 
-## 2. Extract and enter the project
+| Layer | Technologies |
+|---|---|
+| Backend | Python, FastAPI |
+| Investigation | Deterministic, rule-based analysis |
+| Database | SQLite |
+| Frontend | HTML, CSS, JavaScript |
+| API Security | API-key authentication |
+| Rate Limiting | SlowAPI |
+| Testing | Pytest |
+| Containerization | Docker, Docker Compose |
+| CI | GitHub Actions |
+| Hosting | Render |
 
-Extract `aegis-ai-starter.zip`, then open PowerShell in the extracted `aegis-ai-starter` folder.
+## 🔄 How It Works
 
-```powershell
-cd path\to\aegis-ai-starter
+1. **Create an incident** — Register an operational issue through the dashboard or API.
+2. **Analyze logs** — Submit application logs for pattern detection and structured analysis.
+3. **Investigate** — Generate an investigation using available incident information and analysis findings.
+4. **Review recommendations** — Inspect the investigation report and available recovery actions.
+5. **Simulate recovery** — Approve a supported simulation and record its outcome.
+6. **Audit the workflow** — Review stored investigation, action, and audit-event records.
+
+### Investigation Method
+
+AEGIS AI currently uses deterministic heuristics and recognizable log patterns rather than a trained machine-learning model or an external generative AI service.
+
+This approach makes the current behavior suitable for testing, demonstrations, and learning about explainable operational workflows. Findings should be treated as diagnostic suggestions, not guaranteed root-cause conclusions.
+
+## 🧰 Getting Started
+
+### Prerequisites
+
+Install the following:
+
+- Python 3.11 or a compatible version supported by the dependencies
+- Git
+- Docker Desktop, if using the containerized setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/akankshad1712/aegis-ai.git
+cd aegis-ai
 ```
 
-## 3. Create a virtual environment
+### 2. Create a virtual environment
+
+**Windows PowerShell**
 
 ```powershell
-py -m venv .venv
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks activation, you can run the environment's Python executable directly instead.
+
+### 3. Install dependencies
+
+```powershell
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-If PowerShell blocks activation, use this for the current terminal only:
+### 4. Configure your API key
+
+Set a strong, randomly generated API key in your terminal for local development.
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
+$env:AEGIS_API_KEY = python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
-## 4. Run the API and dashboard
+To use a persistent local `.env` file, create it from the variables your application expects. Never commit your real `.env` file.
+
+### 5. Start the application
 
 ```powershell
-uvicorn app.main:app --reload
+python -m uvicorn app.main:app --reload
 ```
 
-Open:
-- Dashboard: http://127.0.0.1:8000
-- Interactive API docs: http://127.0.0.1:8000/docs
-- Health check: http://127.0.0.1:8000/api/health
+Open these URLs:
 
-Stop the server with `Ctrl+C`.
+| Resource | URL |
+|---|---|
+| Dashboard | http://127.0.0.1:8000/ |
+| API documentation | http://127.0.0.1:8000/docs |
+| Health endpoint | http://127.0.0.1:8000/api/health |
 
-## 5. Try the demo
+**Note:** Protected API endpoints require the configured API key. The health endpoint is exempt from API-key authentication.
 
-1. Open the dashboard.
-2. Click **Load synthetic incidents**.
-3. Click **Investigate** on an incident.
-4. Read the ranked hypotheses and evidence.
-5. Select the incident for recovery.
-6. Propose a simulated rollback/restart/scale action.
-7. Click **Approve simulation** and confirm the result says `SIMULATION ONLY`.
+## 🐳 Run with Docker Compose
 
-You can also call the API from PowerShell:
+The repository includes Docker configuration for running the application in a container.
+
+### 1. Create a local environment file
+
+Create `.env` in the project root:
+
+```dotenv
+AEGIS_API_KEY=replace-with-a-strong-random-secret
+```
+
+Generate a strong secret using Python:
 
 ```powershell
-Invoke-RestMethod http://127.0.0.1:8000/api/health
-Invoke-RestMethod -Method Post http://127.0.0.1:8000/api/demo/seed
-Invoke-RestMethod http://127.0.0.1:8000/api/incidents
+python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
-## 6. Run tests
+Copy the generated value into `.env`. Do not publish it.
 
-Stop the dev server first, then run:
+### 2. Build and start
 
 ```powershell
-pytest -q
+docker compose up --build -d
 ```
 
-Expected: 3 tests pass. If you already have a `test_aegis.db` file from a previous interrupted run, stop the server and delete that test file before retrying.
+### 3. Check container health
 
-## Folder structure
-
-```text
-aegis-ai-starter/
-├── app/
-│   ├── __init__.py
-│   ├── db.py                 # SQLite persistence and audit records
-│   ├── engine.py             # Transparent deterministic diagnostic rules
-│   ├── main.py               # FastAPI routes and startup
-│   └── static/
-│       └── index.html        # Lightweight dashboard
-├── tests/
-│   └── test_api.py
-├── .gitignore
-├── requirements.txt
-└── README.md
+```powershell
+docker compose ps
+docker compose logs -f aegis-api
 ```
 
-## API endpoints
+### 4. Stop the application
+
+```powershell
+docker compose down
+```
+
+The Docker Compose configuration uses a named volume for the SQLite database. Keep the volume when stopping the service if you want to preserve its local data.
+
+## 🔌 API Overview
+
+The application exposes REST endpoints for health checks, incidents, log analysis, investigations, simulated actions, and audit events.
 
 | Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/api/health` | Health check |
+| GET | `/api/health` | Check service health |
 | GET | `/api/incidents` | List incidents |
-| POST | `/api/incidents` | Create incident |
-| POST | `/api/demo/seed` | Add synthetic demo data |
-| GET | `/api/incidents/{id}` | Read one incident |
-| POST | `/api/incidents/{id}/investigate` | Run and save investigation |
-| GET | `/api/incidents/{id}/investigations` | Read saved reports |
-| POST | `/api/incidents/{id}/actions` | Propose a safe simulation |
-| POST | `/api/actions/{id}/approve-simulation` | Approve simulated action |
+| POST | `/api/demo/seed` | Seed demo data |
+| GET | `/api/incidents/{id}` | Retrieve an incident |
+| PATCH | `/api/incidents/{id}/status` | Update incident status |
+| POST | `/api/logs/analyze` | Analyze submitted logs |
+| POST | `/api/incidents/{id}/logs/analyze` | Analyze logs for an incident |
+| POST | `/api/incidents/{id}/investigate` | Run an investigation |
+| GET | `/api/incidents/{id}/investigations` | Retrieve investigation history |
+| GET | `/api/incidents/{id}/actions` | List recovery actions |
+| POST | `/api/actions/{action_id}/approve-simulation` | Approve a simulated action |
+| GET | `/api/audit-events` | Inspect audit events |
 
-## Build roadmap
+For request schemas, parameters, and response models, see the interactive [Swagger API documentation](https://aegis-ai-8epd.onrender.com/docs).
 
-1. **MVP (now):** API, dashboard, SQLite, synthetic incidents, diagnostic rules, action audit, tests.
-2. **Evidence ingestion:** parse user-supplied sample logs and attach timestamped evidence objects.
-3. **Evaluation lab:** create labeled incidents and measure top-1 root-cause accuracy, evidence coverage, and unsafe-action prevention.
-4. **Agent orchestration:** add a constrained tool-calling loop with explicit tool schemas, max-step limits, and logged inputs/outputs.
-5. **Optional AI model:** test a free-tier hosted provider or a small local model only if memory permits. Do not make the app depend on a paid API.
-6. **Observability:** later add OpenTelemetry/Prometheus or simple local metric fixtures. Avoid running a full monitoring stack on 8 GB RAM initially.
-7. **Frontend upgrade:** if desired, replace the served HTML with Next.js after the backend is stable.
+> These endpoints describe the intended API surface. Refer to Swagger for the deployed version's current request and response schemas.
 
-## Portfolio integrity
+## 🧪 Testing
 
-Only claim features that you have implemented and tested. Describe the initial engine as a deterministic incident triage engine, not a fully autonomous AI agent. Use synthetic data or systems you are authorized to inspect.
-=======
-# aegis-ai
-Evidence-first AI incident investigation platform with log analysis, audit trails, API security, and simulated recovery actions.
->>>>>>> origin/main
+Run the test suite from the repository root:
+
+```powershell
+python -m pytest -v
+```
+
+The existing test suite covers areas including:
+
+- API health and incident workflows
+- Investigation and simulated recovery flows
+- Audit logging and incident status validation
+- Log parsing and malformed or empty input
+- Memory-pressure pattern detection
+- API-key authentication
+
+The last reported local test run passed **13 tests**. The GitHub Actions workflow has also passed in the reported run.
+
+## 🔐 Security Considerations
+
+AEGIS AI includes API-key protection for protected API routes and records important workflow events.
+
+For safe operation:
+
+- Generate strong, unique API keys.
+- Store secrets in environment variables or your hosting provider's secret configuration.
+- Never commit `.env`, database files, or credentials.
+- Keep production secrets separate from development secrets.
+- Review audit records and application logs.
+- Validate access controls before exposing the service to untrusted users.
+- Avoid sending sensitive production logs to a public demo.
+
+**Important:** API-key authentication is only one security layer. A public deployment should also be assessed for authorization, request-size limits, input handling, abuse prevention, and data retention.
+
+## ⚠️ Current Limitations
+
+AEGIS AI is a portfolio and engineering project, not a fully autonomous production incident-response system.
+
+- Investigation findings are based on deterministic heuristics.
+- Recovery operations are simulations and do not modify real infrastructure.
+- SQLite persistence depends on the configured storage environment.
+- A free hosting instance may sleep during inactivity.
+- Diagnostic findings can be incomplete or incorrect and require human review.
+
+## 🛣️ Roadmap
+
+Potential future improvements:
+
+- [ ] Add richer investigation explanations and evidence references.
+- [ ] Add more log-pattern rules and regression tests.
+- [ ] Introduce persistent managed database storage for production-like deployment.
+- [ ] Improve incident filtering, search, and dashboard visualization.
+- [ ] Add role-based access control and stronger audit protections.
+- [ ] Add metrics, structured logging, and observability integrations.
+- [ ] Explore optional LLM-assisted investigation with evidence-grounded outputs.
+- [ ] Add real infrastructure integrations behind explicit authorization and safeguards.
+
+## 🤝 Contributing
+
+Contributions, suggestions, bug reports, and ideas are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Implement and test your changes.
+4. Open a pull request describing the change.
+
+Please avoid submitting credentials, private logs, or sensitive operational data.
+
+## 👩‍💻 Author
+
+**Akanksha Deshmukh**
+
+Software Engineering · Backend Development · API Engineering · Reliability Tooling
+
+- **GitHub:** [@akankshad1712](https://github.com/akankshad1712)
+- **Project:** [AEGIS AI](https://github.com/akankshad1712/aegis-ai)
+- **Live Demo:** [aegis-ai-8epd.onrender.com](https://aegis-ai-8epd.onrender.com)
+
+---
+
+<div align="center">
+
+### Built to make incident investigation more explainable, traceable, and reliable.
+
+**AEGIS AI — Detect. Investigate. Explain. Recover.**
+
+<sub>Built as a software engineering and reliability intelligence project.</sub>
+
+</div>
